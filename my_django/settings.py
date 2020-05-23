@@ -125,3 +125,14 @@ STATICFILES_DIRS = [
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 # MEDIA_URL = '/media/'
 
+
+# fastDFS配置
+
+# 覆盖默认的存储系统的类
+DEFAULT_FILE_STORAGE = 'utils.fastDFS.fdfs_storage.FDFSStorage'
+# 配置Nginx存储完整路径（填补访问的host）
+BASE_URL = '/'
+# fastDFS客户端配置文件的路径
+FDFS_CLIENT_CONF = os.path.join(BASE_DIR, 'utils/fastDFS/client.conf')
+
+
