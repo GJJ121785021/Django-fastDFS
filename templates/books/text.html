@@ -1,0 +1,20 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>文本</title>
+</head>
+<body>
+
+<h1>{{ object.name }}</h1>
+<div>{{ object.content | safe }}</div>
+
+
+{{form.media}}
+{{form.as_p}}
+
+
+</body>
+</html>
+
+
