@@ -70,16 +70,16 @@ WSGI_APPLICATION = 'my_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'djdb',
-#        'USER': 'root',
-#        'PASSWORD': '123456',
-#        'HOST': 'localhost',
-#        'PORT': '3306',
-#    }
-#}
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.mysql',
+       'NAME': 'test',
+       'USER': '',
+       'PASSWORD': '',
+       'HOST': 'localhost',
+       'PORT': '3306',
+   }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -126,12 +126,14 @@ STATICFILES_DIRS = [
 # MEDIA_URL = '/media/'
 
 
-# fastDFS配置
+#------------- fastDFS配置---------------
 
 # 覆盖默认的存储系统的类
 DEFAULT_FILE_STORAGE = 'utils.fastDFS.fdfs_storage.FDFSStorage'
+
 # 配置Nginx存储完整路径（填补访问的host）
 BASE_URL = '/'
+
 # fastDFS客户端配置文件的路径
 FDFS_CLIENT_CONF = os.path.join(BASE_DIR, 'utils/fastDFS/client.conf')
 

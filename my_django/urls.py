@@ -22,21 +22,12 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mdeditor/', include('mdeditor.urls')),
 
-    path('', view.index, name='index'),
-    path('add/', view.add),
-    path('del/', view.dele),
-    path('polls/', include('polls.urls')),
-    path('learnmodelapp/', include('learnmodelapp.urls')),
-    re_path(r'^comments/(?:page-(?P<page_number>\d+))/$', view.my_view),
-    path('upload_file/', view.upload_file, name='upload_file'),
-    path('books/', include('books.urls')),
-    path('vue/', include('vue_app.urls')),
+    path('image/', include('fastdfs_app.urls', namespace='fdfs_app'))
 
 ]
 
 
-if settings.DEBUG:
-    # static files (images, css, javascript, etc.)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     # static files (images, css, javascript, etc.)
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
