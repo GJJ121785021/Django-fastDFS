@@ -32,4 +32,4 @@ def delete(request):
 
 def get(request):
     image = PersonalImage.objects.first()
-    return HttpResponse(f'path{image.image.path},,url{image.image.url}')
+    return HttpResponse(f'url--------{image.image.url}')

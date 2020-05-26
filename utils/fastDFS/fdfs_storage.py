@@ -24,12 +24,22 @@ class FDFSStorage(Storage):
         pass
 
     def _save(self, name, content):
-        """重写_save方法为FDFS上传"""
-        # 创建客户端连接对象
+        """重写_save方法为FDFS上传
 
-        for i in range(3):
+        upload_by_buffer方法 ->upload_by_buffer(self, filebuffer, file_ext_name=None, meta_dict=None):
+        通过file_ext_name设置文件后缀名，(meta_dict设置其他参数信息[猜测可以])
+        @meta_dict: dictionary e.g.:{
+            'ext_name'  : 'jpg',
+            'file_size' : '10240B',
+            'width'     : '160px',
+            'hight'     : '80px'
+            }
+        """
+        file_type = name.split('.')[-1] if '.' in name else None
+        # 传个两次，不成功就算了
+        for i in range(2):
             # 调用连接对象的二进制上传文件方法
-            result = self.client.upload_by_buffer(content.read())
+            result = self.client.upload_by_buffer(content.read(), file_type)
             # 判断上传图片是否成功,失败主动报错
             if result['Status'] == 'Upload successed.':
                 break
