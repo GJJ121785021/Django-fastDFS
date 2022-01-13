@@ -5,7 +5,7 @@ fdfs-client-py @ file:///django_pro/utils/fastDFS/fdfs_client-py-master.zip
 idna==2.9
 mutagen==1.44.0
 mysqlclient==1.4.6
-Pillow==7.1.2
+Pillow==9.0.0
 pytz==2020.1
 requests==2.23.0
 sqlparse==0.3.1
